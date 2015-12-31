@@ -19,3 +19,5 @@ RUN mkdir bakdata
 
 ENV STOCK_BAK_DATA /opt/bakdata
 ENV STOCK_DATA /opt/data
+
+CMD ["/bin/bash"]
