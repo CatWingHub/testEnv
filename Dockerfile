@@ -5,7 +5,7 @@ WORKDIR /usr/local
 RUN mkdir data
 RUN mkdir bakdata
 
-ENV STOCK_BAK_DATA /usr/local/bakdata
-ENV STOCK_BASE_DATA /usr/local/data
+ENV STOCK_BAK_DIR /usr/local/bakdata
+ENV STOCK_BASE_DIR /usr/local/data
 
 CMD ["catalina.sh", "run"]
