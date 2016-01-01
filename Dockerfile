@@ -1,24 +1,11 @@
-FROM ubuntu:15.10
+FROM tomee:8-jre-1.7.3-webprofile
 
-USER root
-
-WORKDIR /opt
-
-RUN apt-get update
-RUN apt-get install -y openjdk-8-jdk
-RUN apt-get install -y wget
-RUN apt-get install -y vim
-RUN wget http://apache.fayea.com/tomee/tomee-1.7.3/apache-tomee-1.7.3-webprofile.tar.gz
-RUN tar -xvf apache-tomee-1.7.3-webprofile.tar.gz
-RUN rm apache-tomee-1.7.3-webprofile.tar.gz
-RUN mv apache-tomee-webprofile-1.7.3 tomee
-
-EXPOSE 8080
+WORKDIR /usr/local
 
 RUN mkdir data
 RUN mkdir bakdata
 
-ENV STOCK_BAK_DATA /opt/bakdata
-ENV STOCK_DATA /opt/data
+ENV STOCK_BAK_DATA /usr/local/bakdata
+ENV STOCK_BASE_DATA /usr/local/data
 
-CMD ["/bin/bash"]
+CMD ["catalina.sh", "run"]
